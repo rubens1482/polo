@@ -1,0 +1,202 @@
+body{
+padding:20px;
+}
+
+.flip {
+-webkit-perspective: 800;
+perspective: 800;
+position: relative;
+text-align: left;
+min-height:200px;
+margin-bottom:20px;
+}
+
+.flipped {
+height: 100%;
+background-color:#efefef;
+-webkit-transform: rotateY(-180deg);
+transform: rotateY(-180deg);
+}
+
+.card {
+height: 100%;
+-webkit-transform-style: preserve-3d;
+-webkit-transition: 0.5s;
+transform-style: preserve-3d;
+transition: 0.5s;
+}
+
+.card .face {
+-webkit-backface-visibility: hidden ;
+backface-visibility: hidden ;
+z-index: 2;
+}
+
+.front {
+/*position: relative;*/
+background-color: #FFF;
+
+height:250px;
+position: absolute;
+width: 350px;
+z-index: 1;
+border: 1px solid #e3e3e3;
+box-shadow: 5px 7px rgba(0, 0, 0, 0.15);
+transition: background 0.4s ease;
+}
+
+.front-content, .back-content {
+padding: 20px;
+}
+.front-content:before {
+content:��;
+width: 100px;
+height: 100px;
+float: right;
+}
+.corner-tip:before, .corner-tip:after {
+background-color: #FFF;
+position: absolute;
+display: block;
+z-index: 2;
+border-top-right-radius: 60%;
+width: 50%;
+height: 50%;
+content: ��;
+}
+.corner-tip:before {
+right: 100%;
+top: 0%;
+background: -webkit-radial-gradient(-180% 200%, circle, rgba(255,255,255,0) 80%, rgba(0,0,0,.2) 100%);
+}
+.front:hover .corner-tip:before {
+border-right: solid 1px #fff;
+}
+.front div.corner:hover .corner-tip:before {
+border-right: solid 2px #fff;
+}
+.corner-tip:after {
+top: 100%;
+right: 0%;
+background: -webkit-radial-gradient(-250% 320%, circle, rgba(255,255,255,0) 80%, rgba(0,0,0,.2) 100%);
+}
+.front:hover .corner-tip:after {
+border-top: solid 1px #fff;
+}
+.front div.corner:hover .corner-tip:after {
+border-top: solid 2px #fff;
+}
+.corner { /* edit these sizes for the default revealing corner size */
+height: 20px;
+width: 20px;
+right: 0;
+top: 0;
+position: absolute;
+overflow: visible;
+}
+.front:hover .corner { /* edit corner size (First animation, when the whole page is rollovered) */
+height: 30px;
+width: 30px;
+}
+.front div.corner:hover { /* edit corner size (Second animation, when the corner itself is rollovered) */
+height: 50px;
+width: 50px;
+}
+.corner:before {
+position: absolute;
+top: 0;
+right: 0;
+content: ��;
+display: block;
+width: 133%;
+height: 133%;
+}
+.corner-contents:after {
+position: absolute;
+top: 0;
+right: 0;
+content: ��;
+background: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0) 37%, #DDD 62%, rgba(230, 230, 230, 0.1) 64%, rgba(255, 255, 255, 0) 67%), -webkit-radial-gradient(-50% 150%, circle, transparent 74%, rgba(0, 0, 0, 0.2) 74%, transparent 81%);
+display: block;
+width: 133%;
+height: 133%;
+}
+.corner-tip {
+position: absolute;
+top: 0;
+right: 0;
+content: ��;
+background: -webkit-linear-gradient(45deg, #ddd 17%, #dfdfdf 18%, #f5f5f5 30%, #f8f8f8 34%, #eee 39%, rgba(200,200,200,0) 41%);
+display: block;
+width: 100%;
+height: 100%;
+}
+.corner-button {
+position: absolute;
+top: 0;
+right: 0;
+color: #fff;
+text-align: center;
+padding:5px;
+display: inline-block;
+font-size: 1.6em;
+color:black;
+}
+.corner-contents {
+width: 125%;
+position: absolute;
+display: block;
+overflow: hidden;
+-webkit-mask: -webkit-linear-gradient(45deg, transparent 49%, #000 53%);
+top: 0;
+right: 0;
+height: 125%;
+}
+._corner-contents:before {
+content: ��;
+position: absolute;
+top: 0;
+right: 0;
+content: ��;
+display: block;
+width: 100%;
+height: 100%;
+background-color: #eeeef4; /* Match this background color to #fpc_effect-back */
+}
+.corner, .corner-contents, .corner-tip {
+-webkit-transition-property: all;
+-webkit-transition-duration: .3s;
+-webkit-transition-timing-function: cubic-bezier(0, 0.35, .5, 1.7);
+}
+
+.back {
+height:300px;
+width: 300px;
+
+-webkit-transform: rotateY(-180deg);
+transform: rotateY(-180deg);
+border: 1px solid #e3e3e3;
+box-shadow: 5px 7px rgba(0, 0, 0, 0.15);
+transition: background 0.4s ease;
+}
+
+.imgThumb{
+width:80px;
+height:80px;
+}
+
+.card blockquote {
+border-left: none;
+margin: 0;
+}
+
+.card blockquote img {
+margin-bottom: 10px;
+}
+
+.card blockquote p:before {
+content: �\f10d�;
+font-family: �Fontawesome�;
+float: left;
+margin-right: 10px;
+}
